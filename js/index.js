@@ -182,4 +182,20 @@ let tagMain = new HtmlElement(objMain);
 tagMain.getUnshiftEl(tagNews);
 let strHtml = tagMain.getHtml();
 
-document.write(`${strStyle} ${strHtml}`);
+let array = [strStyle, strHtml];
+
+class HtmlBlock {
+  constructor(array) {
+    this._style = array[0];
+    this._html = array[1];
+  }
+
+  getCode() {
+    return `${this._style} ${this._html}`;
+  }
+}
+
+let code = new HtmlBlock(array);
+
+document.write(code.getCode());
+
